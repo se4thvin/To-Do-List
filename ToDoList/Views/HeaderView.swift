@@ -12,12 +12,12 @@ struct HeaderView: View {
         //header
         ZStack{
             RoundedRectangle(cornerRadius: 25)
-                .foregroundStyle(Color.blue)
-            //.rotationEffect(Angle(degrees: 20))
+                .foregroundStyle(Color.darkPurple)
+                .rotationEffect(Angle(degrees: 15))
                 .shadow(radius: 10)
-            
+                .offset(y: -125)
             VStack{
-                Text("To-DO-List")
+                Text("To-Do-List")
                     .font(.title)
                     .foregroundStyle(Color.white)
                     .bold()
@@ -27,12 +27,11 @@ struct HeaderView: View {
                     .bold()
                 
             }
-            .padding()
             .offset(y: -125)
+            //.padding()
+            //.offset(y: -125)
         }
-        .frame(width: UIScreen.main.bounds.width * 3, height: 300)
-        //.offset(y: -125)
-        
+        .frame(width: UIScreen.main.bounds.width * 3, height: 500)
     }
 }
 
