@@ -19,7 +19,7 @@ struct LoginView: View {
                 Spacer()
                 //Login form
                 LoginFormView()
-                
+                    .offset(y:-50)
                 
                 VStack{
                     

@@ -15,15 +15,15 @@ struct LoginFormView: View {
     var body: some View {
         ZStack {
                    // Background (Optional for demonstration)
-                   Color(.systemBackground)
-                       .edgesIgnoringSafeArea(.all)
+//                   Color(.systemBackground)
+//                       .edgesIgnoringSafeArea(.all)
                        //.foregroundColor(colorScheme == .dark ? Color.oceanBlue : Color.softPink)
                    // Blurred RoundedRectangle
                    RoundedRectangle(cornerRadius: 20)
-                       .fill(Color(.systemBackground).opacity(0.8)) // Slightly transparent background
-                       .blur(radius: 10) // Blur effect for the background
-                       .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5) // Drop shadow
-                       .padding()
+                        .fill(Color.gray.opacity(0)) // Slightly transparent background
+                        .blur(radius: 10) // Blur effect for the background
+                        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5) // Drop shadow
+                        .padding()
                    
                    // Login Form
                    VStack(spacing: 16) {
