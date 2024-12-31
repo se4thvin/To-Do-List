@@ -1,17 +1,18 @@
 //
-//  LoginFormView.swift
+//  RegisterFormView.swift
 //  ToDoList
 //
-//  Created by Sethvin Nanayakkara on 12/30/24.
+//  Created by Sethvin Nanayakkara on 12/31/24.
 //
 
 import SwiftUI
 
-struct LoginFormView: View {
+struct RegisterFormView: View {
     
     let title: String
     @Environment(\.colorScheme) var colorScheme
-    @State var username: String = ""
+    @State var name: String = ""
+    @State var email: String = ""
     @State var password: String = ""
     
     var body: some View {
@@ -22,7 +23,13 @@ struct LoginFormView: View {
                         .font(.system(size: 24))
                         .foregroundStyle(colorScheme == .dark ? Color.white : Color.white)
                         .fontWeight(.semibold)
-                    TextField("Username", text: $username)
+                    TextField("Full Name", text: $name)
+                        .textFieldStyle(DefaultTextFieldStyle())
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.powderpurple.opacity(0.3)))
+                        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+                    
+                    TextField("E-mail", text: $email)
                         .textFieldStyle(DefaultTextFieldStyle())
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.powderpurple.opacity(0.3)))
@@ -67,5 +74,5 @@ struct LoginFormView: View {
 }
 
 #Preview {
-    LoginFormView(title: "Login")
+    RegisterFormView(title:"Register")
 }
