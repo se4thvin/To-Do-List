@@ -11,10 +11,7 @@ struct RegisterFormView: View {
     
     let title: String
     @Environment(\.colorScheme) var colorScheme
-    @State var name: String = ""
-    @State var email: String = ""
-    @State var password: String = ""
-    
+	@StateObject var ViewModel = RegisterFormViewModel()
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -23,7 +20,7 @@ struct RegisterFormView: View {
                         .font(.system(size: 24))
                         .foregroundStyle(colorScheme == .dark ? Color.white : Color.white)
                         .fontWeight(.semibold)
-                    TextField("Full Name", text: $name)
+					TextField("Full Name", text: $ViewModel.name)
                         .textFieldStyle(DefaultTextFieldStyle())
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.powderpurple.opacity(0.3)))
@@ -31,7 +28,7 @@ struct RegisterFormView: View {
                         .autocapitalization(.none)
                         .autocorrectionDisabled()
                     
-                    TextField("Email Address", text: $email)
+					TextField("Email Address", text: $ViewModel.email)
                         .textFieldStyle(DefaultTextFieldStyle())
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.powderpurple.opacity(0.3)))
@@ -39,7 +36,7 @@ struct RegisterFormView: View {
                         .autocapitalization(.none)
                         .autocorrectionDisabled()
                     
-                    SecureField("Password", text: $password)
+					SecureField("Password", text: $ViewModel.password)
                         .textFieldStyle(DefaultTextFieldStyle())
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.powderpurple.opacity(0.3)))
