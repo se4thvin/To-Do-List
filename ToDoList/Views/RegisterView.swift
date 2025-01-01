@@ -15,6 +15,7 @@ import SwiftUI
                                 //header
                                 HeaderView(title: "Register Now", subTitle: "Get organized today", angle: -15, background: .red)
                                 Spacer()
+									.offset(y: -100)
      
                             }
                             VStack{

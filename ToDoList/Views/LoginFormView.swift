@@ -11,18 +11,24 @@ struct LoginFormView: View {
     
     let title: String
     @Environment(\.colorScheme) var colorScheme
-    @State var username: String = ""
-    @State var password: String = ""
+    @StateObject var viewModel = LoginFormViewModel()
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 VStack(spacing: 16) {
-                    Text(title)
-                        .font(.system(size: 24))
-                        .foregroundStyle(colorScheme == .dark ? Color.white : Color.white)
-                        .fontWeight(.semibold)
-                    TextField("Email Address", text: $username)
+					
+					Text(title)
+						.font(.system(size: 24))
+						.foregroundStyle(colorScheme == .dark ? Color.white : Color.white)
+						.fontWeight(.semibold)
+					
+					if !viewModel.errorMessage.isEmpty {
+						Text(viewModel.errorMessage)
+							.foregroundStyle(Color.red)
+					}
+					
+                    TextField("Email Address", text: $viewModel.email)
                         .textFieldStyle(DefaultTextFieldStyle())
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.powderpurple.opacity(0.3)))
@@ -30,14 +36,14 @@ struct LoginFormView: View {
                         .autocapitalization(.none)
                         .autocorrectionDisabled()
                     
-                    SecureField("Password", text: $password)
+					SecureField("Password", text: $viewModel.password)
                         .textFieldStyle(DefaultTextFieldStyle())
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.powderpurple.opacity(0.3)))
                         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
                     
                     TLButton(title: "Log in", backgroundColor: .oceanBlue) {
-                        //Log in action 
+						viewModel.login()
                     }
                 }
                 .frame(
