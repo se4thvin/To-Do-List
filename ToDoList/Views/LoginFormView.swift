@@ -22,11 +22,13 @@ struct LoginFormView: View {
                         .font(.system(size: 24))
                         .foregroundStyle(colorScheme == .dark ? Color.white : Color.white)
                         .fontWeight(.semibold)
-                    TextField("Username", text: $username)
+                    TextField("Email Address", text: $username)
                         .textFieldStyle(DefaultTextFieldStyle())
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.powderpurple.opacity(0.3)))
                         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+                        .autocapitalization(.none)
+                        .autocorrectionDisabled()
                     
                     SecureField("Password", text: $password)
                         .textFieldStyle(DefaultTextFieldStyle())
@@ -34,20 +36,9 @@ struct LoginFormView: View {
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.powderpurple.opacity(0.3)))
                         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
                     
-                    Button {
-                        // Log in action
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(Color.oceanBlue)
-                                .frame(height: 50)
-                            Text("Log in")
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color.white)
-                                .font(.headline)
-                        }
+                    TLButton(title: "Log in", backgroundColor: .oceanBlue) {
+                        //Log in action 
                     }
-                    .padding(.top, 20)
                 }
                 .frame(
                     maxWidth: geometry.size.width * 0.9,

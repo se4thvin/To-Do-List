@@ -28,12 +28,16 @@ struct RegisterFormView: View {
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.powderpurple.opacity(0.3)))
                         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+                        .autocapitalization(.none)
+                        .autocorrectionDisabled()
                     
-                    TextField("E-mail", text: $email)
+                    TextField("Email Address", text: $email)
                         .textFieldStyle(DefaultTextFieldStyle())
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.powderpurple.opacity(0.3)))
                         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+                        .autocapitalization(.none)
+                        .autocorrectionDisabled()
                     
                     SecureField("Password", text: $password)
                         .textFieldStyle(DefaultTextFieldStyle())
@@ -41,20 +45,9 @@ struct RegisterFormView: View {
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.powderpurple.opacity(0.3)))
                         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
                     
-                    Button {
-                        // Log in action
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(Color.oceanBlue)
-                                .frame(height: 50)
-                            Text("Log in")
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color.white)
-                                .font(.headline)
-                        }
+                    TLButton(title:"Create Account", backgroundColor: .oceanBlue) {
+                        //register action
                     }
-                    .padding(.top, 20)
                 }
                 .frame(
                     maxWidth: geometry.size.width * 0.9,
